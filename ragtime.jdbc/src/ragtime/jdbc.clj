@@ -14,8 +14,8 @@
 
 (defn- migrations-table-ddl [table-name]
   (sql/create-table-ddl table-name
-                        [[:id "varchar(255)"]
-                         [:created_at "varchar(32)"]]))
+                        [:id "varchar(255)"]
+                        [:created_at "varchar(32)"]))
 
 (defn- get-table-names [db-spec]
   (-> (sql/get-connection db-spec)
