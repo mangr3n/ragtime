@@ -21,7 +21,7 @@
   (-> (sql/get-connection db-spec)
       (.getMetaData)
       (.getTables nil nil "%" nil)
-      (sql/metadata-result {:row-fn :table_name})))
+      (sql/metadata-result :row-fn :table_name)))
 
 (defn- table-exists? [db-spec ^String table-name]
   (some #(.equalsIgnoreCase table-name %) (get-table-names db-spec)))
