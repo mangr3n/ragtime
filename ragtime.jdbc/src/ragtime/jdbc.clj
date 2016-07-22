@@ -50,7 +50,7 @@
     (ensure-migrations-table-exists db-spec migrations-table)
     (sql/query db-spec
                [(str "SELECT id FROM " migrations-table " ORDER BY created_at")]
-               {:row-fn :id})))
+               :row-fn :id)))
 
 (alter-meta! #'->SqlDatabase assoc :no-doc true)
 (alter-meta! #'map->SqlDatabase assoc :no-doc true)
